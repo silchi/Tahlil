@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+
+{% block resource %}
+{% endblock %}
+
+{% block content %}
+   
+  <body class=" checkout-page">
+    
+    <div class="master-wrapper">
+     
+    
+    
+    <div class="container">
+        <div class="row">
+            
+            <!--  ==========  -->
+            <!--  = Main content =  -->
+            <!--  ==========  -->
+            <section class="span12">
+                
+                <div class="checkout-container">
+                    <div class="row">
+                    	<div class="span10 offset1">
+                    	    
+                    	    <!--  ==========  -->
+							<!--  = Header =  -->
+							<!--  ==========  -->
+                    		<header>
+                    		    <div class="row">
+                    		    	<div class="span2"></div>
+                    		    	<div class="span6">
+                    		    	    <div class="center-align">
+                    		    	        <h1><span class="light">ثبت نام گردش ساز/خدمت ساز</span></h1>
+                    		    	        <br/><br>
+                                        </div>
+                    		    	</div>
+                    		</header>
+                    		                  		
+						    <!--  ==========  -->
+							<!--  = Shipping addr form =  -->
+							<!--  ==========  -->
+							    
+						    <form action="#" method="post" class="form-horizontal form-checkout">
+                                <div class="control-group">
+                                    <label class="control-label" for="agencyType">نوع خدمت<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <select name="cars" id="agencyType" class="span4" required>
+                                            <option value="آژانس مسافرتی">آژانس مسافرتی</option>
+                                            <option value="هتل">هتل</option>
+                                            <option value="رستوران">رستوران</option>
+                                            <option value="حمل و نقل">حمل و نقل</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="firstName">نام شرکت<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="firstName" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="sabtID">شماره ثبت<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" pattern="[0-9]*" id="sabtID" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="email">ایمیل<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="email" id="email" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="password">گذرواژه<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="password" id="password" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="rePassword">تکرار گذرواژه<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="password" id="rePassword" class="span4" required>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="telephone">شماره تماس<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="tel" id="telephone" class="span4" required>
+                                    </div>
+                                </div>
+                                    <div class="control-group">
+                                    <label class="control-label" for="addr1">آدرس<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="addr1" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="city">شهر<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="city" class="span4" >
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="zip">کد پستی<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="zip" class="span4" >
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="website">وبسایت</label>
+                                    <div class="controls">
+                                        <input type="url" id="website" class="span4" required>
+                                    </div>
+                                </div>
+
+                                
+                            </form>
+
+                            <hr />
+
+                            <div id="terms">
+
+                            </div>
+
+
+                            <SCRIPT language=JavaScript>
+                                function checkCheckBox(f){
+                                    if (f.agree.checked == false )
+                                    {
+                                        alert('برای ادامه، لطفا توافق نامه را تایید کنید');
+                                        return false;
+                                    }else
+                                        return true;
+                                }
+                                //-->
+                            </SCRIPT>
+
+                            <form id="myform" action="/yourscript.cgi-or-your-page.html" method="POST" onsubmit="return checkCheckBox(this)">
+
+                            <!--Enter your form contents here-->
+                                <br />
+                                <input type="checkbox" value="0" name="agree" ><span> تمام شرایط را مطالعه کرده ام و با آن ها موافقم.</span> <br>
+                                <br>
+
+                                <input type="submit" value="ثبت نام" class="btn btn-primary higher bold">
+                                <input type="button" value="انصراف" class="btn btn-primary higher bold" onclick="document.location.href='/home';">
+                            </form>
+
+							    
+                    	</div>
+                    </div>
+                </div>
+                
+                
+            </section> <!-- /main content -->
+        
+        </div>
+    </div> <!-- /container -->
+    
+     
+    
+     
+    </div> <!-- end of master-wrapper -->
+
+  {% endblock %}

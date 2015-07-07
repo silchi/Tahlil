@@ -1,0 +1,668 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+
+{% block resource %}
+{% endblock %}
+
+{% block content %}
+  <body class="">
+
+    <div class="master-wrapper">
+
+    <!--  ==========  -->
+    <!--  = Breadcrumbs =  -->
+    <!--  ==========  -->
+    <div class="darker-stripe">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <ul class="breadcrumb">
+                        <li>
+{#                            <a href="index.html">وبمارکت</a>#}
+                        </li>
+{#                        <li><span class="icon-chevron-right"></span></li>#}
+                        <li>
+{#                            <a href="shop.html">فروشگاه</a>#}
+                        </li>
+{#                        <li><span class="icon-chevron-right"></span></li>#}
+                        <li>
+{#                            <a href="shop.html">قالب بندی اصلی</a>#}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="push-up blocks-spacer">
+            <div class="row">
+
+                <!--  ==========  -->
+                <!--  = Sidebar =  -->
+                <!--  ==========  -->
+                <aside class="span3 left-sidebar" id="tourStep1">
+                    <div class="sidebar-item sidebar-filters" id="sidebarFilters">
+
+                        <!--  ==========  -->
+                        <!--  = Sidebar Title =  -->
+                        <!--  ==========  -->
+                        <div class="underlined">
+                        	<h3><span class="light">بر اساس فیلتر</span> خرید کنید</h3>
+                        </div>
+
+                        <!--  ==========  -->
+                        <!--  = Categories =  -->
+                        <!--  ==========  -->
+                        <div class="accordion-group" id="tourStep2">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#filterOne">دسته بندی ها <b class="caret"></b></a>
+                            </div>
+                            <div id="filterOne" class="accordion-body collapse in">
+                                <div class="accordion-inner">
+                                    <a href="#" data-target=".filter--accessories" class="selectable"><i class="box"></i> زیارتی</a>
+									<a href="#" data-target=".filter--bags, .filter--hats" class="selectable"><i class="box"></i>تفریحی</a>
+									<a href="#" data-target=".filter--polo-shirts" class="selectable"><i class="box"></i> تجاری</a>
+                                </div>
+                            </div>
+                        </div> <!-- /categories -->
+
+                        <!--  ==========  -->
+                        <!--  = Prices slider =  -->
+                        <!--  ==========  -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#filterPrices">قیمت <b class="caret"></b></a>
+                            </div>
+                            <div id="filterPrices" class="accordion-body in collapse">
+                                <div class="accordion-inner with-slider">
+                                    <div class="jqueryui-slider-container">
+                                        <div id="pricesRange"></div>
+                                    </div>
+                                    <input type="text" data-initial="99" class="min-val" disabled />
+									<input type="text" data-initial="432" class="max-val pull-right" disabled />
+                                </div>
+                            </div>
+                        </div> <!-- /prices slider -->
+
+                        <!--  ==========  -->
+                        <!--  = Size filter =  -->
+                        <!--  ==========  -->
+
+                        <!--  ==========  -->
+                        <!--  = Color filter =  -->
+                        <!--  ==========  -->
+
+                        <!--  ==========  -->
+                        <!--  = Brand filter =  -->
+                        <!--  ==========  -->
+
+                </aside> <!-- /sidebar -->
+
+                <!--  ==========  -->
+                <!--  = Main content =  -->
+                <!--  ==========  -->
+                <section class="span9">
+
+                    <!--  ==========  -->
+                    <!--  = Title =  -->
+                    <!--  ==========  -->
+                    <div class="underlined push-down-20">
+                        <div class="row">
+                            <div class="span5">
+                                <h3><span class="light">همه</span> محصولات</h3>
+                            </div>
+                            <div class="span4">
+                                <div class="form-inline sorting-by" id="tourStep4">
+                                    <label for="isotopeSorting" class="black-clr">چینش :</label>
+                                    <select id="isotopeSorting" class="span3">
+                                        <option value='{"sortBy":"price", "sortAscending":"true"}'>بر اساس قیمت (کم به زیاد) &uarr;</option>
+                                        <option value='{"sortBy":"price", "sortAscending":"false"}'>بر اساس قیمت (زیاد به کم) &darr;</option>
+                                        <option value='{"sortBy":"name", "sortAscending":"true"}'>بر اساس نام (صعودی) &uarr;</option>
+                                        <option value='{"sortBy":"name", "sortAscending":"false"}'>بر اساس نام (نزولی) &darr;</option>
+                                        <option value='{"sortBy":"popularity", "sortAscending":"true"}'>بر اساس محبوبیت (کم به زیاد) &uarr;</option>
+                                        <option value='{"sortBy":"popularity", "sortAscending":"false"}'>بر اساس محبوبیت (زیاد به کم) &darr;</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /title -->
+
+                    <!--  ==========  -->
+                    <!--  = Products =  -->
+                    <!--  ==========  -->
+                    <div class="row popup-products">
+                        <div id="isotopeContainer" class="isotope-container">
+
+
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--blazers" data-price="1567" data-popularity="2" data-size="xs|s|m|xl" data-color="pink" data-brand="adidas">
+                    	        <div class="product">
+
+                	                    <div class="stamp red">تمام شد</div>
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-1.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="#">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$1567</h4>
+                    	                <h5 class="no-margin isotope--title">Adipiscing Ut</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--swimwear" data-price="323" data-popularity="3" data-size="xs|s|m|xxl" data-color="pink|orange" data-brand="adidas">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-2.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="#">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$323</h4>
+                    	                <h5 class="no-margin isotope--title">Dapibus Feugiat</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--chinos" data-price="1475" data-popularity="1" data-size="l|xxl" data-color="pink|orange" data-brand="naish">
+                    	        <div class="product">
+
+                    	                <div class="stamp green">جدید</div>
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-3.jpg' %}/>
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$1475</h4>
+                    	                <h5 class="no-margin isotope--title">Sit Vel Eros</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--accessories" data-price="738" data-popularity="4" data-size="l|xl" data-color="red" data-brand="adidas">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-4.jpg' %}/>
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$738</h4>
+                    	                <h5 class="no-margin isotope--title">Ipsum Dapibus Feugiat Ut</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--shorts" data-price="32" data-popularity="3" data-size="xs|l|xl|xxl" data-color="green" data-brand="adidas">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-5.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$32</h4>
+                    	                <h5 class="no-margin isotope--title">Sit Nisi Duis</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--boots" data-price="334" data-popularity="3" data-size="l|xxl" data-color="green|orange" data-brand="puma">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src= {% static 'images/dummy/products/product-6.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$334</h4>
+                    	                <h5 class="no-margin isotope--title">Vel Adipiscing Ac Sit Feugiat</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--underwear" data-price="1052" data-popularity="5" data-size="s|l|xxl" data-color="red" data-brand="s-oliver">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src= {% static 'images/dummy/products/product-7.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$1052</h4>
+                    	                <h5 class="no-margin isotope--title">Amet Vivamus Vel Felis Feugiat</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--bags" data-price="1302" data-popularity="4" data-size="s|m|xxl" data-color="pink" data-brand="s-oliver">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-8.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$1302</h4>
+                    	                <h5 class="no-margin isotope--title">Amet Nisi Vulputate</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--accessories" data-price="1276" data-popularity="3" data-size="xs|s" data-color="green|purple" data-brand="naish">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-9.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$1276</h4>
+                    	                <h5 class="no-margin isotope--title">Adipiscing Elit Duis Dapibus</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--shoes" data-price="1435" data-popularity="1" data-size="xs|m" data-color="blue" data-brand="shred">
+                    	        <div class="product">
+
+                    	                <div class="stamp green">جدید</div>
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-10.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$1435</h4>
+                    	                <h5 class="no-margin isotope--title">Lorem Amet Felis</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--polo-shirts" data-price="895" data-popularity="3" data-size="xs|m" data-color="red|blue" data-brand="nike">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-11.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$895</h4>
+                    	                <h5 class="no-margin isotope--title">Adipiscing Felis</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--shirts" data-price="9" data-popularity="2" data-size="xs|m|xl|xxl" data-color="red|purple" data-brand="naish">
+                    	        <div class="product">
+
+                	                    <div class="stamp red">تمام شد</div>
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-12.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$9</h4>
+                    	                <h5 class="no-margin isotope--title">Lorem Consectetur Est</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--blazers" data-price="188" data-popularity="3" data-size="s|xl|xxl" data-color="blue" data-brand="nike">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-13.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$188</h4>
+                    	                <h5 class="no-margin isotope--title">Dolor Consectetur Tincidunt Nisi Ut</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--shirts" data-price="536" data-popularity="3" data-size="xs|l|xl|xxl" data-color="purple" data-brand="naish">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-14.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$536</h4>
+                    	                <h5 class="no-margin isotope--title">Lorem Eros</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--shorts" data-price="1747" data-popularity="4" data-size="xs|m|xl" data-color="green|purple" data-brand="nike">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-15.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$1747</h4>
+                    	                <h5 class="no-margin isotope--title">Amet Vel Adipiscing Nisi Dapibus</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--shorts" data-price="14" data-popularity="2" data-size="xs|m|l|xxl" data-color="red|pink" data-brand="puma">
+                    	        <div class="product">
+
+                	                    <div class="stamp red">Sold</div>
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-16.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$14</h4>
+                    	                <h5 class="no-margin isotope--title">Elit Vel</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                    	    <div class="span3 filter--chinos" data-price="1142" data-popularity="3" data-size="xs|s|m" data-color="green|purple" data-brand="adidas">
+                    	        <div class="product">
+
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src={% static 'images/dummy/products/product-17.jpg' %} />
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn more btn-primary" href="/show-tour">توضیحات بیشتر</a>
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">$1142</h4>
+                    	                <h5 class="no-margin isotope--title">Elit Vel</h5>
+                    	            </div>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star"></span>
+                    	                <span class="icon-star"></span>
+
+                    	            </p>
+                    	        </div>
+                    	    </div> <!-- /single product -->
+                    	</div>
+                	</div>
+                	<hr />
+                </section> <!-- /main content -->
+            </div>
+        </div>
+    </div> <!-- /container -->
+
+    </div> <!-- end of master-wrapper -->
+
+  {% endblock %}

@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+
+{% block resource %}
+{% endblock %}
+
+{% block content %}
+  <body class=" checkout-page">
+    
+    <div class="master-wrapper">
+     
+    
+    
+    <div class="container">
+        <div class="row">
+            
+            <!--  ==========  -->
+            <!--  = Main content =  -->
+            <!--  ==========  -->
+            <section class="span12">
+                
+                <div class="checkout-container">
+                    <div class="row">
+                    	<div class="span10 offset1">
+                    	    
+                    	    <!--  ==========  -->
+							<!--  = Header =  -->
+							<!--  ==========  -->
+                    		<header>
+                    		    <div class="row">
+                    		    	<div class="span2"></div>
+                    		    	<div class="span6">
+                    		    	    <div class="center-align">
+                    		    	        <h1><span class="light">تعریف گردش جدید<span></h1>
+                    		    	        <br/><br>
+                                        </div>
+                    		    	</div>
+                    		</header>
+                    		                  		
+						    <!--  ==========  -->
+							<!--  = Shipping addr form =  -->
+							<!--  ==========  -->
+							    
+						    <form action="#" method="post" class="form-horizontal form-checkout">
+                                <div class="control-group">
+                                    <label class="control-label" for="tourType">نوع تور<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <select name="cars" id="tourType" class="span4" required>
+                                            <option value="تفریحی">تفریحی</option>
+                                            <option value="زیارتی">زیارتی</option>
+                                            <option value="تجاری">تجاری</option>
+                                            <option value="علمی">علمی</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="origin">مبدا تور از<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="origin" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="destination">مقصد<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="destination" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="days">مدت تور<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="days" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="date">تاریخ (از/تا)<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="date" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="vehicle">وسیله سفر<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <select name="cars" id="vehicle" class="span4" required>
+                                            <option value="هواپیما">هواپیما</option>
+                                            <option value="اتوبوس">اتوبوس</option>
+                                            <option value="کشتی">کشتی</option>
+                                            <option value="قطار">قطار</option>
+                                            <option value="مینی بوس/ون">مینی بوس/ون</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="companyName">شرکت مسافرتی<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="companyName" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="requirements">مدارک لازم<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="requirements" class="span4" required >
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="services">خدمات آژانس<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="services" class="span4" required>
+                                    </div>
+                                </div>
+                                    <div class="control-group">
+                                    <label class="control-label" for="hotelname">نام هتل<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="hotelname" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="hotelservices">خدمات هتل<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="hotelservices" class="span4" >
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="price">قیمت برای هر نفر (تومان)<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="number" id="price" class="span4" >
+                                    </div>
+                                </div>
+
+                                
+                            </form>
+
+                            <hr />
+
+
+                            <script>
+                                function checkCheckBox(f){
+                                    if (f.agree.checked == false )
+                                    {
+                                        alert('برای ادامه، لطفا توافق نامه را تایید کنید');
+                                        return false;
+                                    }else
+                                        return true;
+                                }
+                                //-->
+                            </script>
+
+                            <form id="myform" action="/yourscript.cgi-or-your-page.html" method="POST" onsubmit="return checkCheckBox(this)">
+                            <!--Enter your form contents here-->
+                                <br />
+                                <input type="checkbox" value="0" name="agree" ><span> آژانس متعهد می شود که تمام امکانات و خدمات ذکر شده را تماما به اجرا برساند و در صورت بروز هر گونه مشکل، تبعات آن بر عهده آژانس می باشد.</span> <br>
+                                <br>
+
+                                <input type="submit" value="ثبت و مشاهده" class="btn btn-primary higher bold">
+                                <input type="button" value="انصراف" class="btn btn-primary higher bold" onclick="document.location.href='/home';">
+                            </form>
+
+							    
+                    	</div>
+                    </div>
+                </div>
+                
+                
+            </section> <!-- /main content -->
+        
+        </div>
+    </div> <!-- /container -->
+    
+     
+    
+     
+    </div> <!-- end of master-wrapper -->
+    
+    {% endblock %}

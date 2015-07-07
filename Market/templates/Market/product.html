@@ -1,0 +1,287 @@
+    {% extends "layout.html" %}
+    {% load staticfiles %}
+
+    {%  block resource %}
+        <script src={%  static "js/modernizr.custom.56918.js" %}></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <style>
+                            @import url(http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
+
+                            * {
+                              margin: 0;
+                              padding: 0;
+                              font-family: roboto;
+                            }
+
+                            body { background: #000; }
+
+                            .cont {
+                              width: 93%;
+                              max-width: 350px;
+                              text-align: center;
+                              margin: 4% auto;
+                              padding: 30px 0;
+                              background: #111;
+                              color: #EEE;
+                              border-radius: 5px;
+                              border: thin solid #444;
+                              overflow: hidden;
+                            }
+
+                            hr {
+                              margin: 20px;
+                              border: none;
+                              border-bottom: thin solid rgba(255,255,255,.1);
+                            }
+
+                            div.title { font-size: 2em; }
+
+                            h1 span {
+                              font-weight: 300;
+                              color: #Fd4;
+                            }
+
+                            div.stars {
+                              width: 270px;
+                              display: inline-block;
+                            }
+
+                            input.star { display: none; }
+
+                            label.star {
+                              float: right;
+                              padding: 10px;
+                              font-size: 36px;
+                              color: #444;
+                              transition: all .2s;
+                            }
+
+                            input.star:checked ~ label.star:before {
+                              content: '\f005';
+                              color: #FD4;
+                              transition: all .25s;
+                            }
+
+                            input.star-5:checked ~ label.star:before {
+                              color: #FE7;
+                              text-shadow: 0 0 20px #952;
+                            }
+
+                            input.star-1:checked ~ label.star:before { color: #F62; }
+
+                            label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+                            label.star:before {
+                              content: '\f006';
+                              font-family: FontAwesome;
+                            }
+                            </style>
+    {%  endblock %}
+
+    {% block content %}
+
+    <!--  ==========  -->
+    <!--  = Breadcrumbs =  -->
+    <!--  ==========  -->
+    <div class="darker-stripe">
+        <div class="container">
+        	<div class="row">
+        		<div class="span12">
+        		    <ul class="breadcrumb">
+	                </ul>
+        		</div>
+        	</div>
+        </div>
+    </div>
+
+    <!--  ==========  -->
+    <!--  = Main container =  -->
+    <!--  ==========  -->
+    <div class="container">
+        <div class="push-up top-equal blocks-spacer">
+            
+            <!--  ==========  -->
+            <!--  = Tour =  -->
+            <!--  ==========  -->
+            <div class="row blocks-spacer">
+                
+                <!--  ==========  -->
+                <!--  = Preview Images =  -->
+                <!--  ==========  -->
+                <div class="span5">
+                    <div class="product-preview">
+                        <div class="picture">
+                            <img src="{{ first_image }}" alt="" width="940" height="940" id="mainPreviewImg" />
+                        </div>
+                        <div class="thumbs clearfix">
+                            <div class="thumb active">
+                                <a href="#mainPreviewImg"><img src="{{ first_image }}" alt="" width="940" height="940" /></a>
+                            </div>
+{#                            {% for img in tour.images %}#}
+{#                                <div class="thumb">#}
+{#                                    <a href="#mainPreviewImg"><img src="{{ img.refrence }}" alt="" width="940" height="940" /></a>#}
+{#                                </div>#}
+{#                            {% endfor %}#}
+                        </div>
+                    </div>
+                </div>
+                
+                <!--  ==========  -->
+                <!--  = Title and Tour desc =  -->
+                <!--  ==========  -->
+                <div class="span7">
+                    <div class="product-title">
+                        <h1 class="name"><span class="light"></span>{{ tour.name }}</h1>
+                        <div class="meta">
+                            <span class="tag">{{ tour.price }} تومان</span>
+                            <span class="stock">
+                                {% if isAvailable %}
+                                    <span class="btn btn-success">موجود</span>
+                                {% endif %}
+                                {% if not isAvailable %}
+                                <span class="btn btn-danger">ظرفیت تکمیل</span>
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>{{ tour.description }}</p>
+                        <hr />
+                        
+                        <!--  ==========  -->
+                        <!--  = Add to cart form =  -->
+                        <!--  ==========  -->
+                        <form action="#" class="form form-inline clearfix">
+                            <span>تعداد بلیط جهت افزودن به سبد خرید:   </span>
+                            <div class="numbered">
+                            	<input type="text" name="num" value="1" class="tiny-size" />
+                            	<span class="clickable add-one icon-plus-sign-alt"></span>
+                            	<span class="clickable remove-one icon-minus-sign-alt"></span>
+                            </div>
+                            <button class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</button>
+                        </form>
+                        <hr />
+
+                        <div class="stars">
+                            <div class="span12">
+                                <div class="main-titles lined">
+                                    <h2 class="title"><span class="light"></span>از ۱ تا ۵ امتیازدهی کنید :</h2>
+                                </div>
+                            </div>
+                            <form action="#">
+                                <input class="star star-5" id="star-5-2" type="radio" name="star"/>
+                                <label class="star star-5" for="star-5-2"></label>
+                                <input class="star star-4" id="star-4-2" type="radio" name="star"/>
+                                <label class="star star-4" for="star-4-2"></label>
+                                <input class="star star-3" id="star-3-2" type="radio" name="star"/>
+                                <label class="star star-3" for="star-3-2"></label>
+                                <input class="star star-2" id="star-2-2" type="radio" name="star"/>
+                                <label class="star star-2" for="star-2-2"></label>
+                                <input class="star star-1" id="star-1-2" type="radio" name="star"/>
+                                <label class="star star-1" for="star-1-2"></label>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!--  ==========  -->
+            <!--  = Tabs with more info =  -->
+            <!--  ==========  -->
+            <div class="row">
+                <div class="span12">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab-1" data-toggle="tab">جزئیات</a>
+                        </li>
+                        <li>
+                            <a href="#tab-2" data-toggle="tab">مدارک لازم</a>
+                        </li>
+                        <li>
+                            <a href="#tab-3" data-toggle="tab">نظرات</a>
+                        </li>
+                        <li>
+                            <a href="#tab-4" data-toggle="tab">اطلاعات تماس آژانس</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="fade in tab-pane active" id="tab-1">
+                            <p>{{ tour.complete_description }}</p>
+                        </div>
+                        <div class="fade tab-pane" id="tab-2">
+                            <p>{{ tour.document }}</p>
+                        </div>
+                        <div class="fade tab-pane" id="tab-3">
+                            <form action="#">
+                                <div class="span12">
+                                    <div class="main-titles lined">
+                                        <h2 class="title"><span class="light"></span>اگر نظر خاصی دارید در اینجا بنویسید :</h2>
+                                    </div>
+                                </div>
+                                <textarea rows="10" id="userComment" required=""></textarea>
+                                <button class="btn btn-primary higher bold" type="submit">ارسال نظر</button>
+                            </form>
+                        </div>
+                        <div class="fade tab-pane" id="tab-4">
+                            <p>{{ tour.agancy.information }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /container -->
+    
+    <!--  ==========  -->
+    <!--  = Recommanded Tours =  -->
+    <!--  ==========  -->
+    {% if isUser %}
+        <div class="boxed-area no-bottom">
+            <div class="container">
+
+                <!--  ==========  -->
+                <!--  = Title =  -->
+                <!--  ==========  -->
+                <div class="row">
+                    <div class="span12">
+                        <div class="main-titles lined">
+                            <h2 class="title"><span class="light"></span> تور های پیشنهادی</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  ==========  -->
+                <!--  = Recommanded Tours =  -->
+                <!--  ==========  -->
+                <div class="row popup-products">
+
+
+                    <!--  ==========  -->
+                    <!--  = Tours =  -->
+                    <!--  ==========  -->
+{#                    {% for recommandedTour in currentUser.fourBestRecommanded %}#}
+{#                        <div class="span3">#}
+{#                            <div class="product">#}
+{#                                <div class="product-img">#}
+{#                                    <div class="picture">#}
+{#                                        <img src="{{ recommandedTour.image.refrence }}" alt="" width="540" height="374" />#}
+{#                                        <div class="img-overlay">#}
+{#                                            <a href="{{ recommandedTour.refrence }}" class="btn more btn-primary">توضیحات بیشتر</a>#}
+{#                                            <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="main-titles no-margin">#}
+{#                                    <h4 class="title"><span class="red-clr">{{ recommandedTour.price }}</span></h4>#}
+{#                                    <h5 class="no-margin">{{ recommandedTour.name }}</h5>#}
+{#                                </div>#}
+{#                                <p class="desc">{{ recommandedTour.description }}</p>#}
+{#                            </div>#}
+{#                        </div> <!-- /product -->#}
+{#                    {% endfor %}#}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% endblock %}

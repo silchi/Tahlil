@@ -1,0 +1,535 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+
+{% block resource %}
+{%  endblock %}
+
+{% block content %}
+
+  <body class=" checkout-page">
+
+    <div class="master-wrapper">
+
+    <div class="container">
+        <div class="row">
+            <!--  ==========  -->
+            <!--  = Main content =  -->
+            <!--  ==========  -->
+            <section class="span12">
+
+                <div class="checkout-container">
+                    <div class="row">
+                    	<div class="span10 offset1">
+
+                    	    <!--  ==========  -->
+							<!--  = Header =  -->
+							<!--  ==========  -->
+                    		<header>
+                    		    <div class="row">
+                    		    	<div class="span2">
+                    		    		<!-- <a href="index.html"><img src="images/logo-bw.png" alt="Webmarket Logo" width="48" height="48" /></a> -->
+                    		    	</div>
+                    		    	<div class="span6">
+                    		    	    <div class="center-align">
+                    		    	        <h1><span class="light">داشبورد مدیریتی </span> {{ user.name }}</h1>
+											<br></br>
+                    		    	    </div>
+                    		    	</div>
+                    		    	<!-- <div class="span2"> -->
+                    		    	    <!-- <div class="right-align"> -->
+                    		    	    	<!-- <img src="images/buttons/security.jpg" alt="Security Sign" width="92" height="65" /> -->
+                    		    	    <!-- </div> -->
+                    		    	<!-- </div> -->
+                    		    </div>
+                    		</header>
+
+                            <ul id="myTab" class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab-1" data-toggle="tab">ویرایش مشخصات</a>
+                                </li>
+                                <li>
+                                    <a href="#tab-2" data-toggle="tab">مالی</a>
+                                </li>
+                                <li>
+                                    <a href="#tab-3" data-toggle="tab">تورها </a>
+                                </li>
+                                <li>
+                                    <a href="#tab-4" data-toggle="tab">هتل‌ها</a>
+                                </li>
+                                <li>
+                                    <a href="#tab-5" data-toggle="tab"> رستوران‌ها</a>
+                                </li>
+                                <li>
+                                    <a href="#tab-6" data-toggle="tab"> حمل و نقل</a>
+                                </li>
+                                <li></li>
+                            </ul>
+                            <div class="tab-content">
+                            <div class="fade in tab-pane active" id="tab-1">
+                                <!--  ==========  -->
+							    <!--  = Shipping addr form =  -->
+							    <!--  ==========  -->
+
+                                <form action="#" method="post" class="form-horizontal form-checkout">
+                                <div class="control-group">
+                                    <label class="control-label" for="email">ایمیل<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="email" id="email" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="password">گذرواژه<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="password" id="password" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="rePassword">تکرار گذرواژه<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="password" id="rePassword" class="span4" required>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="telephone">شماره تماس<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="tel" id="telephone" class="span4" required>
+                                    </div>
+                                </div>
+                                    <div class="control-group">
+                                    <label class="control-label" for="addr1">آدرس<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="addr1" class="span4" required>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="city">شهر<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="city" class="span4" >
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="zip">کد پستی<span class="red-clr bold">*</span></label>
+                                    <div class="controls">
+                                        <input type="text" id="zip" class="span4" >
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="website">وبسایت</label>
+                                    <div class="controls">
+                                        <input type="url" id="website" class="span4" required>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary higher bold">ذخیره</a>
+                            </form>
+
+
+                            </div>
+
+                            <div class="fade tab-pane" id="tab-2">
+                                <p>
+                                    <span><b>میزان موجودی</b></span>
+                                    <b>
+                                    <span style="margin-right: 85px">59000  تومان</span>
+                                    </b>
+                                </p>
+                                <a href="#" class="btn btn-primary higher bold"> دریافت گزارش مالی </a>
+                            </div>
+
+                            <div class="fade tab-pane" id="tab-3">
+                                <table class="table table-items">
+							        <thead>
+                                        <tr>
+                                            <th colspan="2"> </th>
+                                            <th><div>جزئیات</div></th>
+                                            <th><div class="align-right">رضایت‌سنجی</div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-1.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </a></td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src= {%  static 'images/dummy/cart-items/cart-item-2.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src= {%  static 'images/dummy/cart-items/cart-item-3.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-4.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-5.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+							        </tbody>
+                                </table>
+                                <a href="/definition-tour" class="btn btn-primary higher bold"> ایجاد گردش جدید</a>
+                            </div>
+
+                            <div class="fade tab-pane" id="tab-4">
+                                <table class="table table-items">
+							        <thead>
+                                        <tr>
+                                            <th colspan="2"> </th>
+                                            <th><div>جزئیات</div></th>
+                                            <th><div class="align-right">رضایت‌سنجی</div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-1.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </a></td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src= {%  static 'images/dummy/cart-items/cart-item-2.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src= {%  static 'images/dummy/cart-items/cart-item-3.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-4.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-5.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+							        </tbody>
+                                </table>
+                            </div>
+
+                            <div class="fade tab-pane" id="tab-5">
+                                <table class="table table-items">
+							        <thead>
+                                        <tr>
+                                            <th colspan="2"> </th>
+                                            <th><div>جزئیات</div></th>
+                                            <th><div class="align-right">رضایت‌سنجی</div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-1.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </a></td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src= {%  static 'images/dummy/cart-items/cart-item-2.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src= {%  static 'images/dummy/cart-items/cart-item-3.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-4.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-5.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+							        </tbody>
+                                </table>
+                            </div>
+
+                            <div class="fade tab-pane" id="tab-6">
+                                <table class="table table-items">
+							        <thead>
+                                        <tr>
+                                            <th colspan="2"> </th>
+                                            <th><div>جزئیات</div></th>
+                                            <th><div class="align-right">رضایت‌سنجی</div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-1.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </a></td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src= {%  static 'images/dummy/cart-items/cart-item-2.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src= {%  static 'images/dummy/cart-items/cart-item-3.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-4.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-5.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+                                            <td class="align-center">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+
+                                            <td class="price">
+<a href="#" class="btn btn-primary higher bold">دریافت گزارش</a>
+                                            </td>
+                                        </tr>
+							        </tbody>
+                                </table>
+
+                            </div>
+
+                    		<!--  ==========  -->
+							<!--  = Steps =  -->
+							<!--  ==========  -->
+
+                    		<!--  ==========  -->
+							<!--  = Selected Items =  -->
+							<!--  ==========  -->
+                            <!--
+                            <table class="table table-items">
+							    <thead>
+							    	<tr>
+							    		<th colspan="2">استفاده شده</th>
+										<th><div>وضعیت</div></th>
+							    		<th><div class="align-right">قیمت</div></th>
+							    	</tr>
+							    </thead>
+							    <tbody>
+
+							        <tr>
+							        	<td class="image"><img src="images/dummy/cart-items/cart-item-1.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
+							        	<td class="align-center">
+											رزرو شده
+										</td>
+
+							        	<td class="price">
+							        	    $59
+							        	</td>
+							        </tr>
+
+							        <tr>
+							        	<td class="image"><img src="images/dummy/cart-items/cart-item-2.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
+							        	<td class="align-center">
+											خریداری شده
+										</td>
+										<td class="price">
+							        	    $59
+							        	</td>
+							        </tr>
+
+							        <tr>
+							        	<td class="image"><img src="images/dummy/cart-items/cart-item-3.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
+							        	<td class="align-center">
+											خریداری شده
+										</td>
+										<td class="price">
+							        	    $59
+							        	</td>
+							        </tr>
+
+							        <tr>
+							        	<td class="image"><img src="images/dummy/cart-items/cart-item-4.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+							        	<td class="align-center">
+											استفاده شده
+										</td>
+										<td class="price">
+							        	    $59
+							        	</td>
+							        </tr>
+
+							        <tr>
+							        	<td class="image"><img src="images/dummy/cart-items/cart-item-5.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; </td>
+							        	<td class="align-center">
+											استفاده شده
+										</td>
+										<td class="price">
+							        	    $59
+							        	</td>
+							        </tr>
+							        							        <tr>
+							        	<td colspan="2" rowspan="2">
+
+							        	</td>
+							        </tr>
+							        <tr>
+							        	<td class="stronger">جمع کل :</td>
+							        	<td class="stronger"><div class="size-16 align-right">$357.81</div></td>
+							        </tr>
+							    </tbody>
+							</table> -->
+
+                    	</div>
+                    </div>
+                </div>
+            </section> <!-- /main content -->
+        </div>
+    </div> <!-- /container -->
+
+    </div> <!-- end of master-wrapper -->
+  </body>
+{% endblock %}
