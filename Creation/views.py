@@ -1,6 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
-
-def definition_tour(request) :
+def definition_tour(request):
     return render(request, "Creation/defenition-tour.html")

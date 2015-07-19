@@ -1,17 +1,21 @@
 from django.shortcuts import render
+#
+# # Create your views here.
+# from Market.models import Tour, Agency, Image
+#
+#
+# def show_tour(request) :
+#     tour1 = Tour.objects.get(id = 1)
+#
+#     return render(request, "Market/product.html", {
+#         'tour':tour1,
+#         'first_image':"http://www.winkler.fr/media/catalog/product/cache/1/image/940x/040ec09b1e35df139433887a97daa66f/4/6/4669_A.jpg",
+#         'isAvailable':True
+#     })
+#
 
-# Create your views here.
-from Market.models import Tour, Agency, Image
-
-
-def show_tour(request) :
-    tour1 = Tour.objects.get(id = 1)
-
-    return render(request, "Market/product.html", {
-        'tour':tour1,
-        'first_image':"http://www.winkler.fr/media/catalog/product/cache/1/image/940x/040ec09b1e35df139433887a97daa66f/4/6/4669_A.jpg",
-        'isAvailable':True
-    })
+def show_tour(request):
+    return render(request, "Market/product.html")
 
 def show_domestic (request) :
     return render(request, "Market/domestic.html")

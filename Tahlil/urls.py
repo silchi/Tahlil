@@ -23,9 +23,7 @@ urlpatterns = [
     url(r'^home/$', 'UI.views.show_home'),
     url(r'^definition-tour/$', 'Creation.views.definition_tour'),
     url(r'^show-tour/$', 'Market.views.show_tour'),
-    url(r'^profile-tourist/$', 'Dashboard.views.show_profile_tourist'),
-    url(r'^profile-agency/$', 'Dashboard.views.show_profile_agency'),
-    url(r'^profile-admin/$', 'Dashboard.views.show_profile_admin'),
+    url(r'^profile/$', 'Dashboard.views.show_profile'),
     url(r'^buy/$', 'Financial.views.show_buy'),
     url(r'^domestic/$', 'Market.views.show_domestic'),
     url(r'^international/$', 'Market.views.show_international'),
@@ -34,4 +32,6 @@ urlpatterns = [
     url(r'^transportation/$', 'Market.views.show_transportation'),
     url(r'^register-tourist/$', 'Register.views.show_register_tourist'),
     url(r'^register-agency/$', 'Register.views.show_register_agency'),
+    url(r'^login/$', 'Register.views.do_login'),
+    url(r'^logout/$', 'Register.views.do_logout'),
 ]
