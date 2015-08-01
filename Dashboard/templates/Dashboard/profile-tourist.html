@@ -8,8 +8,6 @@
 
   <body class=" checkout-page">
 
-    <div class="master-wrapper">
-
     <div class="container">
         <div class="row">
             <!--  ==========  -->
@@ -189,12 +187,46 @@
                             </div>
 
                             <div class="fade tab-pane" id="tab-3">
-                                {% for tourticket in tour_list %}
-                                    <div>
-                                        <span>{{ tourticket.customer }}</span>
-                                        <span>{{ tourticket.tour }}</span>
-                                    </div>
-                                {% endfor %}
+                                <table class="table table-items">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2"> </th>
+                                            <th><div>وضعیت</div></th>
+                                            <th><div class="align-right">قیمت</div></th>
+                                        </tr>
+                                    </thead>
+                                    {% for tourticket in tour_list %}
+                                        <tr>
+                                            <td class="image"><img src={% static 'images/dummy/cart-items/cart-item-1.jpg' %} alt="" width="124" height="124" /></td>
+                                            <td class="desc"> {{ tourticket.tour.service.name }}
+                                                &nbsp;
+                                                &nbsp;
+                                                {% if tourticket.is_reserved %}
+                                                    <a href = {% url 'confirm' tourticket.pk %}>
+                                                    <img src={% static "images/icons/confirm.png" %} alt="" width="25" height="25" />
+                                                    </a>
+                                                    <a href = {% url 'cancel' tourticket.pk %}>
+                                                    <img src={% static "images/icons/cancel.png" %} alt="" width="25" height="25" />
+                                                    </a>
+                                                {% endif %}
+                                            </td>
+                                            <td class="align-center">
+                                                {% if tourticket.is_reserved %}
+                                                    رزرو شده
+                                                {% else %}
+                                                    خریداری شده
+                                                {% endif %}
+                                            </td>
+
+                                            <td class="price">
+                                                {{ tourticket.tour.service.price }}
+                                                 تومان
+                                            </td>
+                                        </tr>
+
+                                    {% endfor %}
+                                </table>
+                            </div>
 {#                                <table class="table table-items">#}
 {#							        <thead>#}
 {#                                        <tr>#}
@@ -270,8 +302,8 @@
 {#                                            <td class="stronger"><div class="size-16 align-right">$357.81</div></td>#}
 {#                                        </tr>#}
 {#							        </tbody>#}
-                                </table>
-                            </div>
+{#                                </table>#}
+{#                            </div>#}
 
                             <div class="fade tab-pane" id="tab-4">
                                 <table class="table table-items">

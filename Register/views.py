@@ -19,7 +19,7 @@ def do_login(request):
     #     return HttpResponseRedirect('/home/')
     # else:
     #     return HttpResponseRedirect('/home/')
-    user = authenticate(username = 'customer', password='a')
+    user = authenticate(username = 'provider', password='a')
     login(request, user)
     return HttpResponseRedirect('/home/')
 
